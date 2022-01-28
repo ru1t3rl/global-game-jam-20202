@@ -92,6 +92,17 @@ namespace GGJ.Floors
         public string name;
         public GameObject prefab;
 
+        private Entity entity;
+        public Entity Entity
+        {
+            get
+            {
+                if (!entity)
+                    entity = prefab.GetComponent<Entity>();
+                return entity;
+            }
+        }
+
 
         [Header("Spawn Settings")]
         public int minToSpawn;
