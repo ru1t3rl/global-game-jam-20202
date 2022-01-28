@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GGJ.Floors
 {
     public class Floor : MonoBehaviour
     {
-        [SerializeField] List<EnemySettings> possibleEnemies;
         [SerializeField] bool usePooling = false;
+        [SerializeField] List<EnemySettings> possibleEnemies;
 
-        Dictionary<EnemySettings, Stack<GameObject>> pool = new Dictionary<EnemySettings, Stack<GameObject>>();
+        public UnityEvent onFinishFloor;
+
+        Dictionary<EnemySettings, Stack<Entity>> pool = new Dictionary<EnemySettings, Stack<Entity>>();
+
+        int activeEntities = 0;
 
         void Awake()
         {
@@ -17,14 +22,21 @@ namespace GGJ.Floors
             {
                 for (int i = 0, j; i < possibleEnemies.Count; i++)
                 {
-                    pool.Add(possibleEnemies[i], new Stack<GameObject>());
+                    pool.Add(possibleEnemies[i], new Stack<Entity>());
                     for (j = 0; j < possibleEnemies[i].maxToSpawn; j++)
                     {
-                        pool[possibleEnemies[i]].Push(Instantiate(possibleEnemies[i].prefab));
+                        pool[possibleEnemies[i]].Push(Instantiate(possibleEnemies[i].prefab).GetComponent<Entity>());
                     }
                 }
             }
         }
+
+        public void Activate()
+        {
+            gameObject.SetActive(true);
+            SpawnEnemies();
+        }
+
 
         public void SpawnEnemies()
         {
@@ -32,6 +44,21 @@ namespace GGJ.Floors
             {
                 StartCoroutine(SpawnEnemy(possibleEnemies[i]));
             }
+        }
+
+        public void OnEntityDeath()
+        {
+            activeEntities--;
+
+            if (activeEntities <= 0)
+            {
+                FinishFloor();
+            }
+        }
+
+        void FinishFloor()
+        {
+            onFinishFloor?.Invoke();
         }
 
         IEnumerator SpawnEnemy(EnemySettings enemy)
@@ -43,14 +70,16 @@ namespace GGJ.Floors
             {
                 if (usePooling)
                 {
+                    pool[enemy].Peek().OnDeath.AddListener(OnEntityDeath);
                     pool[enemy].Pop().gameObject.SetActive(true);
                 }
                 else
                 {
-                    Instantiate(enemy.prefab);
+                    Instantiate(enemy.prefab).GetComponent<Entity>().OnDeath.AddListener(OnEntityDeath);
                 }
 
                 spawned++;
+                activeEntities++;
                 yield return new WaitForSeconds(enemy.useRandomSpawnRate ? Random.Range(enemy.spawnRate, enemy.maxSpawnRate) : enemy.spawnRate);
             }
         }
