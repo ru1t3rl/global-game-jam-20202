@@ -29,6 +29,11 @@ namespace GGJ.Storage
         }
 
         public virtual void Use() { onUse?.Invoke(); }
+        public virtual void Use(int amount)
+        {
+            this.amount -= (this.amount - amount >= 0 ? amount : 0);
+            onUse?.Invoke();
+        }
 
         #region Properties
         public int Count => amount;

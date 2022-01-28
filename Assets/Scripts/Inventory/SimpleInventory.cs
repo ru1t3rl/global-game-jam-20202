@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GGJ.Utilities;
 
 namespace GGJ.Storage
 {
@@ -8,13 +8,23 @@ namespace GGJ.Storage
     {
         Dictionary<BaseInventoryItem, int> items = new Dictionary<BaseInventoryItem, int>();
 
+        static SimpleInventory instance;
+        public static SimpleInventory Instance => instance;
+
+        private void Awake()
+        {
+            if (instance != null)
+                Destroy(gameObject);
+
+            instance = this;
+        }
+
         public void AddItem(BaseInventoryItem item)
         {
             if (items.ContainsKey(item))
             {
                 items[item] += item.Count;
-
-                
+                items.GetItem(item).Add(item.Count);
             }
             else
                 items.Add(item, item.Count);
@@ -25,7 +35,7 @@ namespace GGJ.Storage
             if (items.ContainsKey(item))
             {
                 items[item] += amount;
-                items[item]++;
+                items.GetItem(item).Add(amount);
             }
             else
                 items.Add(item, item.Count);
@@ -41,11 +51,12 @@ namespace GGJ.Storage
 
         public void UseItem(BaseInventoryItem item)
         {
-            foreach (BaseInventoryItem kItem in items.Keys)
-            {
-                if (item.Name == kItem.name)
-                    kItem.Use();
-            }
+            items.GetItem(item).Use();
+        }
+
+        public void UseItem(BaseInventoryItem item, int amount)
+        {
+            items.GetItem(item).Use(amount);
         }
 
         public void UseItem(string name)
