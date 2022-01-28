@@ -46,7 +46,7 @@ namespace GGJ.Floors
             }
         }
 
-        public void OnEntityDeath()
+        public void OnEntityDeath(Entity entity)
         {
             activeEntities--;
 

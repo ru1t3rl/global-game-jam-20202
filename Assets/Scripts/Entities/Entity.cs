@@ -7,7 +7,7 @@ public abstract class Entity : MonoBehaviour
 {
     private float _currentHealth;
 
-    public UnityEvent OnTakeDamage, OnDeath;
+    public UnityEvent<Entity> OnTakeDamage, OnDeath;
 
     protected float MaxHealth { get; set; }
 
@@ -21,7 +21,7 @@ public abstract class Entity : MonoBehaviour
     {
         CurrentHealth -= damage;
 
-        OnTakeDamage?.Invoke();
+        OnTakeDamage?.Invoke(this);
 
         if (CurrentHealth <= 0)
             Die();
@@ -29,6 +29,6 @@ public abstract class Entity : MonoBehaviour
 
     public void Die()
     {
-        OnDeath?.Invoke();
+        OnDeath?.Invoke(this);
     }
 }
