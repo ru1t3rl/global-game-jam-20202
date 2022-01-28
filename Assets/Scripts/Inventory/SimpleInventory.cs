@@ -24,7 +24,7 @@ namespace GGJ.Storage
             if (items.ContainsKey(item))
             {
                 items[item] += item.Count;
-                items.GetItem(item).Add(item.Count);
+                items.GetItem(item).SetAmount(items[item]);
             }
             else
                 items.Add(item, item.Count);
@@ -35,7 +35,7 @@ namespace GGJ.Storage
             if (items.ContainsKey(item))
             {
                 items[item] += amount;
-                items.GetItem(item).Add(amount);
+                items.GetItem(item).SetAmount(items[item]);
             }
             else
                 items.Add(item, item.Count);
