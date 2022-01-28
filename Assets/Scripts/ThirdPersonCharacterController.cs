@@ -10,16 +10,12 @@ public class ThirdPersonCharacterController : MonoBehaviour
     [SerializeField] float speed = 6f;
     [SerializeField] float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
+    private Camera cam;
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -37,12 +33,12 @@ public class ThirdPersonCharacterController : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.transform.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0, angle, 0);
-            characterController.Move(direction * speed * Time.deltaTime);
-        }
-        
 
+            Vector3 moveDiretion = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            characterController.Move(moveDiretion.normalized * speed * Time.deltaTime);
+        }
     }
 }
