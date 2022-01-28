@@ -6,7 +6,7 @@ namespace GGJ.Storage
 {
     public class SimpleInventory : MonoBehaviour
     {
-        Dictionary<BaseInventoryItem, int> items = new Dictionary<BaseInventoryItem, int>();
+        Dictionary<string, int> items = new Dictionary<string, int>();
 
         static SimpleInventory instance;
         public static SimpleInventory Instance => instance;
@@ -21,30 +21,30 @@ namespace GGJ.Storage
 
         public void AddItem(BaseInventoryItem item)
         {
-            if (items.ContainsKey(item))
+            if (items.ContainsKey(item.Name))
             {
-                items[item] += item.Count;
-                items.GetItem(item).SetAmount(items[item]);
+                items[item.Name] += item.Count;
+                items.GetItem(item.Name).SetAmount(items[item.Name]);
             }
             else
-                items.Add(item, item.Count);
+                items.Add(item.Name, item.Count);
         }
 
         public void AddItem(BaseInventoryItem item, int amount)
         {
-            if (items.ContainsKey(item))
+            if (items.ContainsKey(item.name))
             {
-                items[item] += amount;
-                items.GetItem(item).SetAmount(items[item]);
+                items[item.name] += amount;
+                items.GetItem(item).SetAmount(items[item.name]);
             }
             else
-                items.Add(item, item.Count);
+                items.Add(item.name, item.Count);
         }
 
         public void Removeitem(BaseInventoryItem item)
         {
-            if (items.ContainsKey(item))
-                items.Remove(item);
+            if (items.ContainsKey(item.name))
+                items.Remove(item.name);
             else
                 Debug.LogError($"<b>[{gameObject.name}]</b> Doesn't contain an item with the name {item.name}");
         }
