@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public abstract class Entity
+public abstract class Entity : MonoBehaviour
 {
     private float _currentHealth;
 
+    public UnityEvent<Entity> OnTakeDamage, OnDeath;
+
     protected float MaxHealth { get; set; }
-    
-    protected float CurrentHealth 
-    { 
+
+    protected float CurrentHealth
+    {
         get { return _currentHealth; }
         set { _currentHealth = Mathf.Min(MaxHealth, value); }
     }
@@ -18,7 +21,7 @@ public abstract class Entity
     {
         CurrentHealth -= damage;
 
-        OnTakeDamage();
+        OnTakeDamage?.Invoke(this);
 
         if (CurrentHealth <= 0)
             Die();
@@ -26,10 +29,6 @@ public abstract class Entity
 
     public void Die()
     {
-        OnDeath();
+        OnDeath?.Invoke(this);
     }
-
-    protected virtual void OnTakeDamage() { }
-
-    protected virtual void OnDeath() { }
 }
