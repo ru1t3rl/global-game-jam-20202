@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637790601802460942
+  lastModified: 637790657595761728
   FileSizes:
   - Name: Desktop
     Value: 1170
@@ -62,7 +62,7 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/SoundFX.bank
   Name: SoundFX
   StudioPath: bank:/SoundFX
-  lastModified: 637790601802920944
+  lastModified: 637790657598481727
   FileSizes:
   - Name: Desktop
     Value: 4193600
@@ -82,10 +82,10 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 637790601802370937
+  lastModified: 637790657595641707
   FileSizes:
   - Name: Desktop
-    Value: 5648192
+    Value: 6053664
   Exists: 1
 --- !u!114 &-2288652517422743645
 MonoBehaviour:
@@ -114,7 +114,7 @@ MonoBehaviour:
   - {fileID: 4989217032598760085}
   MinDistance: 1
   MaxDistance: 20
-  Length: 112952
+  Length: 111948
 --- !u!114 &-616260561875017487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637790601802430951
+  lastModified: 637790657595701708
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -191,7 +191,7 @@ MonoBehaviour:
   - {fileID: -616260561875017487}
   StringsBanks:
   - {fileID: -9132275416902970012}
-  cacheTime: 637790601802920944
+  cacheTime: 637790657598481727
   cacheVersion: 10
 --- !u!114 &533030423080009895
 MonoBehaviour:
@@ -208,7 +208,7 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637790601802510943
+  lastModified: 637790657595981703
   FileSizes:
   - Name: Desktop
     Value: 1436
