@@ -151,7 +151,7 @@ Material:
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
-    - _Depth: 1.46
+    - _Depth: 5
     - _DepthInfluence: 1
     - _DepthOffsetEnable: 0
     - _Depth_Strength: 2.99
@@ -179,9 +179,9 @@ Material:
     - _Glossiness: 0.427
     - _GlossyReflections: 1
     - _IntersectionThreshold: 2.7
-    - _Metallic: 0
+    - _Metallic: 1
     - _Mode: 0
-    - _NormalIntensity: 1.98
+    - _NormalIntensity: 2
     - _NormalStrength: 1
     - _OcclusionStrength: 1
     - _OpaqueCullMode: 2
@@ -194,15 +194,15 @@ Material:
     - _ReflectionFade: 0.197
     - _ReflectionIntensity: 0.6
     - _ReflectionRefractionStrength: 0.0274
-    - _RefractionDepthInfluence: 0.982
-    - _RefractionIntensity: 0.28
+    - _RefractionDepthInfluence: 0.051
+    - _RefractionIntensity: 0.668
     - _RefractionModel: 0
     - _RefractionScale: 1
     - _RefractionSpeed: 10
-    - _RefractionStrength: 0.026
+    - _RefractionStrength: 0.0907
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _Smoothness: 0
+    - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 0.4
@@ -230,7 +230,7 @@ Material:
     - _TransparentZWrite: 0
     - _UJump: 0
     - _UVSec: 0
-    - _UseFoam: 0
+    - _UseFoam: 1
     - _UseReflections: 0
     - _UseRefraction: 1
     - _UseShadowThreshold: 0
@@ -253,7 +253,7 @@ Material:
     - Side_Top_Color: {r: 0, g: 1, b: 0.7073908, a: 0}
     - Vector2_308ebafb16ab4a50b902cc588b96200d: {r: 0.19, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 0, b: 0, a: 1}
-    - _DeepWater: {r: 0, g: 0.57600445, b: 0.9811321, a: 0.2784314}
+    - _DeepWater: {r: 0.3254717, g: 0.7273183, b: 1, a: 0.2784314}
     - _Deep_water: {r: 1, g: 0, b: 0, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
@@ -263,7 +263,7 @@ Material:
     - _MainWaveVelocity: {r: 1, g: 1, b: 0, a: 0}
     - _NormalPanningSpeeds: {r: 0, g: 0, b: 0, a: 0}
     - _SecondWaveVelocity: {r: 1, g: 1, b: 0, a: 0}
-    - _ShallowWater: {r: 0.5990566, g: 0.913522, b: 1, a: 0.1764706}
+    - _ShallowWater: {r: 0, g: 0.42990875, b: 1, a: 0.1764706}
     - _Shallow_water: {r: 1, g: 1, b: 1, a: 1}
     - _WaveVelocity: {r: 0.1, g: 0.1, b: 0, a: 0}
   m_BuildTextureStacks: []
