@@ -350,7 +350,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &498967998
 GameObject:
@@ -1252,7 +1252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2100234448}
   - component: {fileID: 2100234447}
-  - component: {fileID: 2100234446}
+  - component: {fileID: 2100234449}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1260,14 +1260,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &2100234446
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100234445}
-  m_Enabled: 1
 --- !u!20 &2100234447
 Camera:
   m_ObjectHideFlags: 0
@@ -1326,3 +1318,78 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2100234449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100234445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
+--- !u!1001 &7802441050563077000
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4796363970627874932, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796363970627874932, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796363970627874932, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796363970627874932, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796363970627874932, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796363970627874932, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796363970627874932, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796363970627874932, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796363970627874932, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796363970627874932, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796363970627874932, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480717481767641495, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
+      propertyPath: m_Name
+      value: Base Audio
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802441049560617754, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
+      propertyPath: PlayEvent
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bb5bdf394605b544995c5e0ab3b9cbec, type: 3}
