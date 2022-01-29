@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e490358e-7751-49b7-b3d8-62aac1f5b5c3}">
+		<property name="assetPath">
+			<value>Soft Wind - Sound Effect.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>35.866122448979588</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{52b16a6d-089c-4811-b68a-49e3379109f8}</destination>
+		</relationship>
+	</object>
+</objects>
