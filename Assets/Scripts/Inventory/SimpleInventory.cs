@@ -68,5 +68,17 @@ namespace GGJ.Storage
             }
         }
 
+        public int Count(string name)
+        {
+            return items[items.GetItem(name)];
+        }
+
+        public int Count(BaseInventoryItem item)
+        {
+            if (items.ContainsKey(item))
+                return items.GetItem(item).Count;
+
+            return -1;
+        }
     }
 }

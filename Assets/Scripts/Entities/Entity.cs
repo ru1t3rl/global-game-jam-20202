@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Entity : MonoBehaviour
+public class Entity : MonoBehaviour
 {
     private float _currentHealth;
 
     public UnityEvent<Entity> OnTakeDamage, OnDeath;
 
-    protected float MaxHealth { get; set; }
+    [SerializeField] protected float MaxHealth;
+
+    void OnEnable()
+    {
+        CurrentHealth = MaxHealth;
+    }
 
     protected float CurrentHealth
     {
