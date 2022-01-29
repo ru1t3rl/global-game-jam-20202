@@ -933,7 +933,7 @@ MonoBehaviour:
   usePooling: 1
   possibleEnemies:
   - name: Air
-    prefab: {fileID: 0}
+    prefab: {fileID: 5418376556147681019, guid: ef7c586ad6291514bbc2d776cbe91d61, type: 3}
     minToSpawn: 1
     maxToSpawn: 3
     useRandomSpawnRate: 1
