@@ -9,7 +9,7 @@ namespace GGJ.Storage
     {
         private BaseInventoryItem inventoryElement;
         private Rigidbody rigidBody;
-        private const float FOLLOW_SPEED = 1;
+        private const float FOLLOW_SPEED = 0.5f;
 
         private void Awake()
         {
@@ -19,14 +19,20 @@ namespace GGJ.Storage
 
         private void OnTriggerStay(Collider other)
         {
-            Vector3 directionVector = other.transform.position - transform.position;
-            rigidBody.velocity += new Vector3(directionVector.x, 0, directionVector.z) * FOLLOW_SPEED;
+            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                Vector3 directionVector = other.transform.position - transform.position;
+                rigidBody.velocity += new Vector3(directionVector.x, 0, directionVector.z) * FOLLOW_SPEED;
+            }
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            SimpleInventory.Instance.AddItem(inventoryElement);
-            gameObject.SetActive(false);
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                SimpleInventory.Instance.AddItem(inventoryElement);
+                Destroy(gameObject);
+            }
         }
     }
 }
