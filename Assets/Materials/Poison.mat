@@ -194,15 +194,15 @@ Material:
     - _ReflectionFade: 0.197
     - _ReflectionIntensity: 0.6
     - _ReflectionRefractionStrength: 0.0274
-    - _RefractionDepthInfluence: 0.982
-    - _RefractionIntensity: 0.28
+    - _RefractionDepthInfluence: 0
+    - _RefractionIntensity: 0.584
     - _RefractionModel: 0
     - _RefractionScale: 1
     - _RefractionSpeed: 10
-    - _RefractionStrength: 0.026
+    - _RefractionStrength: 0.0112
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _Smoothness: 0
+    - _Smoothness: 0.374
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 0.4
@@ -263,7 +263,7 @@ Material:
     - _MainWaveVelocity: {r: 1, g: 1, b: 0, a: 0}
     - _NormalPanningSpeeds: {r: 0, g: 0, b: 0, a: 0}
     - _SecondWaveVelocity: {r: 1, g: 1, b: 0, a: 0}
-    - _ShallowWater: {r: 0, g: 1, b: 0.27777767, a: 0.1764706}
+    - _ShallowWater: {r: 0, g: 0, b: 0, a: 0.1764706}
     - _Shallow_water: {r: 1, g: 1, b: 1, a: 1}
     - _WaveVelocity: {r: 0.1, g: 0.1, b: 0, a: 0}
   m_BuildTextureStacks: []
