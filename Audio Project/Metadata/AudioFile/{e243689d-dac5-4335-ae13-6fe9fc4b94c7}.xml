@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e243689d-dac5-4335-ae13-6fe9fc4b94c7}">
+		<property name="assetPath">
+			<value>Water Drops.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>14.210612244897959</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{52b16a6d-089c-4811-b68a-49e3379109f8}</destination>
+		</relationship>
+	</object>
+</objects>
