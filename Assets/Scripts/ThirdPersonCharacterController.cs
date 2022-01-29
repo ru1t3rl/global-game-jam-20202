@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class ThirdPersonCharacterController : MonoBehaviour
 {
-    CharacterController characterController;
+    private CharacterController characterController;
+    private Rigidbody rigidBody;
 
     [SerializeField] float speed = 6f;
     [SerializeField] float turnSmoothTime = 0.1f, targetAngle, angle;
@@ -15,6 +16,7 @@ public class ThirdPersonCharacterController : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        rigidBody = GetComponent<Rigidbody>();
         cam = Camera.main;
     }
 
@@ -26,6 +28,8 @@ public class ThirdPersonCharacterController : MonoBehaviour
 
     private void MovePlayer()
     {
+        if (!characterController.enabled) return;
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
@@ -33,9 +37,29 @@ public class ThirdPersonCharacterController : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
-            Vector3 moveDiretion = Quaternion.Euler(0f, RotatePlayer(direction), 0f) * Vector3.forward;
-            characterController.Move(moveDiretion.normalized * speed * Time.deltaTime);
-        }        
+            Vector3 moveDirection = Quaternion.Euler(0f, RotatePlayer(direction), 0f) * Vector3.forward;
+            moveDirection += Physics.gravity;
+            characterController.Move(moveDirection.normalized * speed * Time.deltaTime);
+        }
+    }
+
+    public void OnKnockback()
+    {
+        StartCoroutine(KnockbackRoutine());
+    }
+
+    private IEnumerator KnockbackRoutine()
+    {
+        rigidBody.isKinematic = false;
+        characterController.enabled = false;
+        yield return null; //Wait a frame for knockback to apply
+
+        while (rigidBody.velocity.magnitude > 0.1)
+        {
+            yield return null;
+        }
+        rigidBody.isKinematic = true;
+        characterController.enabled = true;
     }
 
     private float RotatePlayer(Vector3 direction)
