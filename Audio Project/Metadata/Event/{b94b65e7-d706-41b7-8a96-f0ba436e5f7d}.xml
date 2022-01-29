@@ -520,7 +520,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{85a46e0a-20a1-482c-88af-c8903e1b506c}">
 		<property name="volume">
-			<value>-13.5</value>
+			<value>-10</value>
 		</property>
 		<property name="name">
 			<value>Water Drops</value>
@@ -798,6 +798,7 @@
 	<object class="MixerBusEffectChain" id="{02576577-1b5f-4a83-adfc-ee90c5946b1e}">
 		<relationship name="effects">
 			<destination>{a6bc3680-6028-43e0-ba19-301a5d6b93e0}</destination>
+			<destination>{1d6ea3e9-e9e6-4b92-86da-b60c569d0feb}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{7a7ba231-213b-4745-badc-aa6a2c58e2c3}" />
@@ -837,12 +838,17 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{a6bc3680-6028-43e0-ba19-301a5d6b93e0}" />
+	<object class="Sidechain" id="{1d6ea3e9-e9e6-4b92-86da-b60c569d0feb}">
+		<property name="level">
+			<value>10</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{ce68a05a-9ed8-4316-b4de-10f57def9236}">
 		<property name="position">
 			<value>51.989881973439459</value>
 		</property>
 		<property name="value">
-			<value>3.81469727e-06</value>
+			<value>10</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{97c4356d-ed30-4f6b-b89a-bc79fc0ca28f}">
@@ -850,7 +856,7 @@
 			<value>47.309664832663458</value>
 		</property>
 		<property name="value">
-			<value>3.81469727e-06</value>
+			<value>10</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{1a8708b7-032c-4640-9d47-25675bad835a}">
@@ -858,7 +864,7 @@
 			<value>51.989861140106129</value>
 		</property>
 		<property name="value">
-			<value>-20</value>
+			<value>-10.0000038</value>
 		</property>
 	</object>
 </objects>

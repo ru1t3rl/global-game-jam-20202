@@ -9,7 +9,7 @@ public class Entity : MonoBehaviour
     private float _maxHealth;
     private float _currentHealth;
 
-    public UnityEvent<Entity> OnTakeDamage, OnDeath;
+    public UnityEvent<Entity, DamageData> OnTakeDamage, OnDeath;
 
     protected float MaxHealth => _maxHealth;
 
@@ -24,18 +24,18 @@ public class Entity : MonoBehaviour
         _currentHealth = MaxHealth;
     }
 
-    public void ApplyDamage(float damage)
+    public void ApplyDamage(DamageData data)
     {
-        CurrentHealth -= damage;
+        CurrentHealth -= data.amount;
 
-        OnTakeDamage?.Invoke(this);
+        OnTakeDamage?.Invoke(this, data);
 
         if (CurrentHealth <= 0)
-            Die();
+            Die(data);
     }
 
-    public void Die()
+    public void Die(DamageData data)
     {
-        OnDeath?.Invoke(this);
+        OnDeath?.Invoke(this, data);
     }
 }

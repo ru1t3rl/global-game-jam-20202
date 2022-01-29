@@ -11,6 +11,7 @@ namespace GGJ.Spells
         [SerializeField] ElementValue[] elements;
         [SerializeField] float range;
         [SerializeField] float damage;
+        [SerializeField] float knockback;
         [SerializeField] float speed;
 
         #region properties
@@ -22,6 +23,7 @@ namespace GGJ.Spells
 
         public float Range => range;
         public float Damage => damage;
+        public float Knockback => knockback;
         public float Speed => speed;
         #endregion
 
@@ -35,6 +37,7 @@ namespace GGJ.Spells
 
             range += upgrade.Range;
             damage += upgrade.Damage;
+            knockback += upgrade.Knockback;
             speed += upgrade.Speed;
         }
 

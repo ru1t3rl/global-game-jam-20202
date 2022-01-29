@@ -48,12 +48,8 @@ namespace GGJ.Floors
                 Random.Range(0, 0),
                 Random.Range(-extents.z, extents.z)
             );
-            //Debug.Log("Random Point: " + point);
-            Debug.Log("Extends : " + extents);
-
             
             return transform.position + point;
-
         }
 
         public void SpawnEnemies()
@@ -64,7 +60,7 @@ namespace GGJ.Floors
             }
         }
 
-        public void OnEntityDeath(Entity entity)
+        public void OnEntityDeath()
         {
             activeEntities--;
 
@@ -88,12 +84,12 @@ namespace GGJ.Floors
             {
                 if (usePooling)
                 {
-                    pool[enemy].Peek().OnDeath.AddListener(OnEntityDeath);
+                    pool[enemy].Peek().OnDeath.AddListener((Entity entity, DamageData data) => OnEntityDeath());
                     pool[enemy].Pop().gameObject.SetActive(true);
                 }
                 else
                 {
-                    Instantiate(enemy.prefab).GetComponent<Entity>().OnDeath.AddListener(OnEntityDeath);
+                    Instantiate(enemy.prefab).GetComponent<Entity>().OnDeath.AddListener((Entity entity, DamageData data) => OnEntityDeath());
                 }
 
                 spawned++;
