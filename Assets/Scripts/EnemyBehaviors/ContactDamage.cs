@@ -5,13 +5,13 @@ using UnityEngine;
 public class ContactDamage : MonoBehaviour
 {
     [SerializeField]
-    float amount;
+    float damage, knockback;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.TryGetComponent(out Player player))
         {
-            player.ApplyDamage(amount);
+            player.ApplyDamage(new DamageData(damage, knockback, gameObject, collision.GetContact(0).point));
         }
     }
 }

@@ -14,9 +14,9 @@ namespace GGJ.Spells
         [SerializeField] VisualEffect vfx;
         [SerializeField] SpellStats stats;
 
-        public UnityEvent onImpact;
+        public SpellStats Stats => stats;
 
-        Vector3 origin;
+        public UnityEvent onImpact;
 
         Tweener tweener;
 
@@ -27,7 +27,6 @@ namespace GGJ.Spells
             if (!HasAllResources)
                 return;
 
-            origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             StartRoutine();
             StartVisualEffect();
         }
@@ -38,7 +37,6 @@ namespace GGJ.Spells
                 return;
 
             transform.position = position;
-            origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             StartRoutine();
             StartVisualEffect();
         }
@@ -49,7 +47,6 @@ namespace GGJ.Spells
                 return;
 
             transform.position = position;
-            origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             StartRoutine(target);
             StartVisualEffect();
         }
@@ -118,7 +115,7 @@ namespace GGJ.Spells
 
             if (entity != null)
             {
-                entity.ApplyDamage(stats.Damage);
+                entity.ApplyDamage(new DamageData(stats.Damage, stats.Knockback, gameObject, transform.position));
             }
         }
     }

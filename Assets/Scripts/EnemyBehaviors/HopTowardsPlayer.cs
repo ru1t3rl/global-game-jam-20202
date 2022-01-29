@@ -54,7 +54,7 @@ public class HopTowardsPlayer : MonoBehaviour
         if (currentCooldown <= 0)
         {
             currentCooldown += Random.Range(minCooldown, maxCooldown);
-            Vector3 hopVector = Quaternion.AngleAxis(-hopAngle, transform.right) * transform.forward;
+            Vector3 hopVector = Quaternion.AngleAxis(-hopAngle, transform.right) * transform.forward.normalized;
             rigidBody.velocity += hopVector * hopForce;
             randomTargetInIdleRange = idleOrigin + Quaternion.AngleAxis(Random.Range(0f, 360), Vector3.up) * Vector3.forward * Random.Range(0f, idleRange);
         }
