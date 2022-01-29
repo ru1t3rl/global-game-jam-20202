@@ -11,8 +11,8 @@ public class Enemy : Entity
 
     protected override void Awake()
     {
-        OnDeath.AddListener((Entity entity) => DropItemsOnDeath());
-        OnDeath.AddListener((Entity entity) => DestroyOnDeath());
+        OnDeath.AddListener((Entity entity, DamageData data) => DropItemsOnDeath());
+        OnDeath.AddListener((Entity entity, DamageData data) => DestroyOnDeath());
         base.Awake();
     }
 
