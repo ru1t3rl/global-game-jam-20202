@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Entity : MonoBehaviour
+public class Entity : MonoBehaviour
 {
     [SerializeField]
     private float _maxHealth;
