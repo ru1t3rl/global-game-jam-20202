@@ -7,9 +7,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2625030686059528197, guid: 8563363497a48034484a8e71a15685e2, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625030686059528197, guid: 8563363497a48034484a8e71a15685e2, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2625030686059528198, guid: 8563363497a48034484a8e71a15685e2, type: 3}
       propertyPath: m_Name
-      value: FireElementPickup
+      value: FireElementPickup Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2625030686059528200, guid: 8563363497a48034484a8e71a15685e2, type: 3}
       propertyPath: id
