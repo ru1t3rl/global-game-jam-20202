@@ -13,10 +13,7 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void QuitGame() {
-        Application.Quit();
-    }
-
+   
     private void FixedUpdate()
     {
         PauseGame(pausePanel);
