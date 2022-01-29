@@ -24,6 +24,9 @@ namespace GGJ.Spells
 
         public void Attack()
         {
+            if (!HasAllResources)
+                return;
+
             origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             StartRoutine();
             StartVisualEffect();
@@ -31,6 +34,9 @@ namespace GGJ.Spells
 
         public void Attack(Vector3 position)
         {
+            if (!HasAllResources)
+                return;
+
             transform.position = position;
             origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             StartRoutine();
@@ -39,6 +45,9 @@ namespace GGJ.Spells
 
         public void Attack(Vector3 position, Vector3 target)
         {
+            if (!HasAllResources)
+                return;
+
             transform.position = position;
             origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             StartRoutine(target);
@@ -80,14 +89,25 @@ namespace GGJ.Spells
             tweener = null;
         }
 
-        public bool HasAllResources()
+        public bool HasAllResources
+        {
+            get
+            {
+                for (int i = 0; i < stats.Elements.Length; i++)
+                {
+                    if (stats.Elements[i].amount > SimpleInventory.Instance.Count(stats.Elements[i].element.name))
+                        return false;
+                }
+                return true;
+            }
+        }
+
+        void UseResources()
         {
             for (int i = 0; i < stats.Elements.Length; i++)
             {
-                if (stats.Elements[i].amount > SimpleInventory.Instance.Count(stats.Elements[i].element))
-                    return false;
+                SimpleInventory.Instance.UseItem(stats.Elements[i].element, stats.Elements[i].amount);
             }
-            return true;
         }
 
         void OnTriggerEnter(Collider other)
