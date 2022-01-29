@@ -262,7 +262,9 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.0000000020133915
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5959816677999525364, guid: c16e4ea3760937e489951574111f0acf, type: 3}
+    - {fileID: 5959816677999525365, guid: c16e4ea3760937e489951574111f0acf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c16e4ea3760937e489951574111f0acf, type: 3}
 --- !u!1 &244955427
 GameObject:
@@ -411,7 +413,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 88fbfc7332a02d14b8dd2b78792f8e8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -450,7 +452,7 @@ Transform:
   m_GameObject: {fileID: 1590805552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.027499998, z: 8.77}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -602,7 +604,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _currentHealth: 0
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -622,7 +623,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _currentHealth: 0
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -678,17 +678,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5311285205459508259, guid: c16e4ea3760937e489951574111f0acf, type: 3}
   m_PrefabInstance: {fileID: 26986591}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2100238402 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5959816677999525364, guid: c16e4ea3760937e489951574111f0acf, type: 3}
-  m_PrefabInstance: {fileID: 26986591}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100238399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c09dbb977781be04db7f216211f309aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2100238406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,7 +691,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _currentHealth: 0
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -724,7 +712,7 @@ MonoBehaviour:
   OnKnockback:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2100238402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ThirdPersonCharacterController, Assembly-CSharp
         m_MethodName: OnKnockback
         m_Mode: 1
@@ -749,7 +737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5806290426446108725, guid: a0d62fbca69e56a4f93127b758851b8f, type: 3}
       propertyPath: knockback
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5806290426446108730, guid: a0d62fbca69e56a4f93127b758851b8f, type: 3}
       propertyPath: m_RootOrder
@@ -769,7 +757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5806290426446108730, guid: a0d62fbca69e56a4f93127b758851b8f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.005
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5806290426446108730, guid: a0d62fbca69e56a4f93127b758851b8f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -777,7 +765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5806290426446108730, guid: a0d62fbca69e56a4f93127b758851b8f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.457001
+      value: 10.89
       objectReference: {fileID: 0}
     - target: {fileID: 5806290426446108730, guid: a0d62fbca69e56a4f93127b758851b8f, type: 3}
       propertyPath: m_LocalRotation.w
