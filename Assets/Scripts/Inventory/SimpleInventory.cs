@@ -66,8 +66,12 @@ namespace GGJ.Storage
             items.GetItem(name)?.item.Use();
             items[items.GetItem(name)] = items.GetItem(name).item.Count;
         }
-    }
 
+        public int Count(string name)
+        {
+            return items[items.GetItem(name)];
+        }
+    }
     [System.Serializable]
     public class Item
     {
