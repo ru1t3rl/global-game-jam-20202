@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,7 +6,8 @@ using UnityEngine;
 
 public class ThirdPersonCharacterController : MonoBehaviour
 {
-    CharacterController characterController;
+    //CharacterController characterController;
+    Rigidbody rigidBody;
 
     [SerializeField] float speed = 6f;
     [SerializeField] float turnSmoothTime = 0.1f, targetAngle, angle;
@@ -14,8 +16,9 @@ public class ThirdPersonCharacterController : MonoBehaviour
 
     private void Awake()
     {
-        characterController = GetComponent<CharacterController>();
+        //characterController = GetComponent<CharacterController>();
         cam = Camera.main;
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -34,7 +37,7 @@ public class ThirdPersonCharacterController : MonoBehaviour
         if (direction.magnitude >= 0.1f)
         {
             Vector3 moveDiretion = Quaternion.Euler(0f, RotatePlayer(direction), 0f) * Vector3.forward;
-            characterController.Move(moveDiretion.normalized * speed * Time.deltaTime);
+            rigidBody.MovePosition(moveDiretion.normalized * speed * Time.deltaTime + transform.position);
         }        
     }
 
