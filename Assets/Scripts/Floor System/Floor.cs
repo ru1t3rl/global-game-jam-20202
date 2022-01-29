@@ -48,12 +48,8 @@ namespace GGJ.Floors
                 Random.Range(0, 0),
                 Random.Range(-extents.z, extents.z)
             );
-            //Debug.Log("Random Point: " + point);
-            Debug.Log("Extends : " + extents);
-
             
             return transform.position + point;
-
         }
 
         public void SpawnEnemies()

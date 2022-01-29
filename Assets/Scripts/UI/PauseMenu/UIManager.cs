@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     public void ResumeGame(GameObject panel) {
         panel.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ReturnToScene(string sceneName) { 
@@ -17,6 +18,7 @@ public class UIManager : MonoBehaviour
     private void FixedUpdate()
     {
         PauseGame(pausePanel);
+        
     }
 
     private void PauseGame(GameObject pausePanel)
@@ -24,6 +26,7 @@ public class UIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
             pausePanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
