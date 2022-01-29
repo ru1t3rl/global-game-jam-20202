@@ -6,24 +6,35 @@ namespace GGJ.Utilities
 {
     public static class ExtensionMethods
     {
-        public static BaseInventoryItem GetItem(this Dictionary<BaseInventoryItem, int> items, BaseInventoryItem item)
+        public static Item GetItem(this Dictionary<Item, int> items, BaseInventoryItem item)
         {
-            foreach (BaseInventoryItem kItem in items.Keys)
+            foreach (Item kItem in items.Keys)
             {
-                if (kItem.Name == item.Name)
+                if (kItem.name == item.Id)
                     return kItem;
             }
             return null;
         }
 
-        public static BaseInventoryItem GetItem(this Dictionary<BaseInventoryItem, int> items, string itemName)
+        public static Item GetItem(this Dictionary<Item, int> items, string itemName)
         {
-            foreach (BaseInventoryItem kItem in items.Keys)
+            foreach (Item kItem in items.Keys)
             {
-                if (kItem.Name == itemName)
+                if (kItem.name == itemName)
                     return kItem;
             }
             return null;
+        }
+
+        public static bool ContainsKey(this Dictionary<Item, int> items, string itemName)
+        {
+            foreach (Item item in items.Keys)
+            {
+                if (item.name == itemName)
+                    return true;
+            }
+
+            return false;
         }
     }
 }
