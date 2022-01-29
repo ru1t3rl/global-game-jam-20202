@@ -9,12 +9,13 @@ namespace GGJ.Storage
     {
         [Header("Base Info")]
         [SerializeField] protected Sprite icon;
-        [SerializeField] protected new string name;
+        [SerializeField] protected string id;
         [SerializeField] protected string description;
+        [SerializeField] protected int amount = 0;
 
         [Header("Base Events")]
         [SerializeField] protected UnityEvent onAdd, onSubtract, onUse;
-        protected int amount = 0;
+
 
         public virtual void Add(int amount = 1)
         {
@@ -39,7 +40,7 @@ namespace GGJ.Storage
 
         #region Properties
         public int Count => amount;
-        public string Name => name;
+        public string Id => id;
         public string Description => description;
         public Sprite Icon => icon;
         #endregion
