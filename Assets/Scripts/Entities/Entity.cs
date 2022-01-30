@@ -11,9 +11,9 @@ public class Entity : MonoBehaviour
 
     public UnityEvent<Entity, DamageData> OnTakeDamage, OnDeath;
 
-    protected float MaxHealth => _maxHealth;
+    public float MaxHealth => _maxHealth;
 
-    protected float CurrentHealth
+    public float CurrentHealth
     {
         get { return _currentHealth; }
         set { _currentHealth = Mathf.Min(MaxHealth, value); }
