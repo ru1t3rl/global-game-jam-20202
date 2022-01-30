@@ -10,24 +10,41 @@ namespace GGJ.Floors
     {
         [SerializeField] bool usePooling = false;
         [SerializeField] List<EnemySettings> possibleEnemies;
+        [SerializeField] Door[] doors;
 
         public UnityEvent onFinishFloor;
+        public UnityEvent onEnterRoom;
 
         Dictionary<EnemySettings, Stack<Entity>> pool = new Dictionary<EnemySettings, Stack<Entity>>();
 
         int activeEntities = 0;
 
+        int toSpawn = 0;
+
+        Object _lock = new Object();
+
+        BoxCollider spawnCollider;
+        public BoxCollider SpawnCollider
+        {
+            get
+            {
+                if (!spawnCollider)
+                    spawnCollider = GetComponent<BoxCollider>();
+                return spawnCollider;
+            }
+        }
+
         void Awake()
         {
             if (usePooling)
             {
-                BoxCollider floorBoundingBox = GetComponent<BoxCollider>();
                 for (int i = 0, j; i < possibleEnemies.Count; i++)
                 {
                     pool.Add(possibleEnemies[i], new Stack<Entity>());
                     for (j = 0; j < possibleEnemies[i].maxToSpawn; j++)
                     {
-                        pool[possibleEnemies[i]].Push(Instantiate(possibleEnemies[i].prefab, GetRandomPointInsideCollider(floorBoundingBox), Quaternion.identity).GetComponent<Entity>());
+                        pool[possibleEnemies[i]].Push(Instantiate(possibleEnemies[i].prefab).GetComponent<Entity>());
+                        pool[possibleEnemies[i]].Peek().gameObject.SetActive(false);
                     }
                 }
             }
@@ -36,19 +53,23 @@ namespace GGJ.Floors
         public void Activate()
         {
             gameObject.SetActive(true);
+            for (int i = 0; i < doors.Length; i++)
+            {
+                doors[i].Open();
+            }
             SpawnEnemies();
         }
 
 
         public Vector3 GetRandomPointInsideCollider(BoxCollider boxCollider)
         {
-            Vector3 extents = boxCollider.size / 2f * 20f;
+            Vector3 extents = boxCollider.size / 2f;
             Vector3 point = new Vector3(
-                Random.Range(-extents.x, extents.x),
-                Random.Range(0, 0),
-                Random.Range(-extents.z, extents.z)
+                Random.Range(-extents.x + boxCollider.center.x, extents.x - boxCollider.center.x),
+                2.5f,
+                Random.Range(-extents.z + boxCollider.center.z, extents.z - boxCollider.center.z)
             );
-            
+
             return transform.position + point;
         }
 
@@ -60,11 +81,11 @@ namespace GGJ.Floors
             }
         }
 
-        public void OnEntityDeath()
+        public void OnEntityDeath(Entity entity, DamageData data)
         {
             activeEntities--;
 
-            if (activeEntities <= 0)
+            if (activeEntities <= 0 && toSpawn <= 0)
             {
                 FinishFloor();
             }
@@ -77,24 +98,58 @@ namespace GGJ.Floors
 
         IEnumerator SpawnEnemy(EnemySettings enemy)
         {
-            float toSpawn = Random.Range(enemy.minToSpawn, enemy.maxToSpawn);
+            int toSpawn = Random.Range(enemy.minToSpawn, enemy.maxToSpawn);
+            this.toSpawn += toSpawn;
             int spawned = 0;
 
             while (spawned < toSpawn)
             {
                 if (usePooling)
                 {
-                    pool[enemy].Peek().OnDeath.AddListener((Entity entity, DamageData data) => OnEntityDeath());
-                    pool[enemy].Pop().gameObject.SetActive(true);
+                    try
+                    {
+                        pool[enemy].Peek().OnDeath.AddListener(OnEntityDeath);
+                        pool[enemy].Peek().transform.position = GetRandomPointInsideCollider(SpawnCollider);
+                        pool[enemy].Pop().gameObject.SetActive(true);
+                    }
+                    catch (KeyNotFoundException)
+                    {
+                        Instantiate(enemy.prefab, GetRandomPointInsideCollider(SpawnCollider), Quaternion.identity).GetComponent<Entity>().OnDeath.AddListener(OnEntityDeath);
+                    }
                 }
                 else
                 {
-                    Instantiate(enemy.prefab).GetComponent<Entity>().OnDeath.AddListener((Entity entity, DamageData data) => OnEntityDeath());
+                    Instantiate(enemy.prefab, GetRandomPointInsideCollider(SpawnCollider), Quaternion.identity).GetComponent<Entity>().OnDeath.AddListener(OnEntityDeath);
                 }
 
-                spawned++;
-                activeEntities++;
+
+                lock (_lock)
+                {
+                    spawned++;
+                    activeEntities++;
+                    this.toSpawn--;
+                }
+
+                Debug.Log(activeEntities);
+
                 yield return new WaitForSeconds(enemy.useRandomSpawnRate ? Random.Range(enemy.spawnRate, enemy.maxSpawnRate) : enemy.spawnRate);
+            }
+        }
+
+        public void CloseDoors()
+        {
+            for (int iDoor = 0; iDoor < doors.Length; iDoor++)
+            {
+                doors[iDoor].Close();
+            }
+        }
+
+        void OnTriggerEnter(Collider collider)
+        {
+            if (collider.GetComponent<Player>())
+            {
+                onEnterRoom?.Invoke();
+                for (int i = 0; i < doors.Length; i++) { doors[i].Close(); }
             }
         }
     }
