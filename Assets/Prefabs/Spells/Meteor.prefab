@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6952548882881756751}
   - component: {fileID: 6952548882881756750}
   - component: {fileID: 6952548882881756737}
-  - component: {fileID: 6952548882881756736}
   - component: {fileID: -2084677657184584757}
+  - component: {fileID: 5636273243060072289}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -100,24 +100,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6952548882881756736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6952548882881756739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbeb767903aae724d921107fa7173b0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visualEffect: {fileID: 4186567343822798583}
-  vfx: {fileID: 0}
-  stats: {fileID: 11400000, guid: 93bb4b5d3858a694799b575435a07289, type: 2}
-  onImpact:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!54 &-2084677657184584757
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -134,6 +116,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5636273243060072289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952548882881756739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d65c547b56f7a141b8c07943732b4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualEffect: {fileID: 4186567343822798583}
+  vfx: {fileID: 0}
+  stats: {fileID: 11400000, guid: 5b6d68126e381f440b476ffb293f420c, type: 2}
+  onImpact:
+    m_PersistentCalls:
+      m_Calls: []
+  impactDelay: 0.4
 --- !u!1001 &4096976939946758119
 PrefabInstance:
   m_ObjectHideFlags: 0
