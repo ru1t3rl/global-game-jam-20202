@@ -115,7 +115,7 @@ namespace GGJ.Spells
 
             if (entity != null)
             {
-                entity.ApplyDamage(stats.Damage);
+                entity.ApplyDamage(new DamageData(stats.Damage, stats.Knockback, gameObject, transform.position));
             }
         }
     }
