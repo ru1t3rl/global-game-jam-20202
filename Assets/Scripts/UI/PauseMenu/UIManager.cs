@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
     public void ResumeGame(GameObject panel)
     {
         panel.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ReturnToScene(string sceneName)

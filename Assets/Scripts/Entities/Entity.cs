@@ -34,7 +34,7 @@ public class Entity : MonoBehaviour
             Die(data);
     }
 
-    public void Die(DamageData data)
+    public virtual void Die(DamageData data)
     {
         OnDeath?.Invoke(this, data);
     }
