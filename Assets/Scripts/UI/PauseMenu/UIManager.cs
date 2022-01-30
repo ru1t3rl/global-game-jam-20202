@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public void ResumeGame(GameObject panel)
     {
         panel.SetActive(false);
+        Time.timeScale = 1f;
         //Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -29,6 +30,7 @@ public class UIManager : MonoBehaviour
         {
             pausePanel.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
         }
     }
 
