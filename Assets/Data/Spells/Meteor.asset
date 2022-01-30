@@ -15,7 +15,7 @@ MonoBehaviour:
   elements: []
   range: 5
   damage: 10
-  knockback: 100
+  knockback: 50
   speed: 1
   cooldown: 0.8
   piercing: 0

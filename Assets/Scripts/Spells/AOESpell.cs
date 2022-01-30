@@ -41,8 +41,8 @@ namespace GGJ.Spells
             Collider[] hits = Physics.OverlapSphere(targetPoint, stats.Range);
             foreach (Collider hit in hits)
             {
-                if (hit.TryGetComponent(out Enemy enemy))
-                    enemy.ApplyDamage(new DamageData(stats.Damage, stats.Knockback, gameObject, targetPoint));
+                if (hit.TryGetComponent(out Entity entity) && !(entity is Player))
+                    entity.ApplyDamage(new DamageData(stats.Damage, stats.Knockback, gameObject, targetPoint));
             }
         }
     }
