@@ -20,6 +20,9 @@ namespace GGJ.Spells
                 targetPoint = hit.point;
                 transform.position = targetPoint;
             }
+
+            onCast?.Invoke();
+
             StartCoroutine(WaitForImpact());
         }
 

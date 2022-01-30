@@ -19,7 +19,7 @@ namespace GGJ.Spells
 
         public SpellStats Stats => stats;
 
-        public UnityEvent onImpact;
+        public UnityEvent onCast, onImpact;
 
         private void Awake()
         {

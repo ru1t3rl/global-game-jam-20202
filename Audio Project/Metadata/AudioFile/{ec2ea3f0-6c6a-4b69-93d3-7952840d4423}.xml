@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{ec2ea3f0-6c6a-4b69-93d3-7952840d4423}">
+		<property name="assetPath">
+			<value>Cute_Creature_1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.17933333333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{52b16a6d-089c-4811-b68a-49e3379109f8}</destination>
+		</relationship>
+	</object>
+</objects>

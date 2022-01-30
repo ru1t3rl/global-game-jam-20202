@@ -71,6 +71,11 @@ namespace Ru1t3rl.Audio
             eventEmitter.Play();
         }
 
+        public void PlayInstance()
+        {
+            eventEmitter.PlayInstance();
+        }
+
         public static explicit operator StudioEventEmitter(AudioSource source) => source.eventEmitter;
         public static explicit operator StudioParameterTrigger(AudioSource source) => source.parameterTrigger;
     }

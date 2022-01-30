@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -14,6 +15,10 @@ public class HopTowardsPlayer : MonoBehaviour
 
     private Transform player;
     private Rigidbody rigidBody;
+
+    public UnityEvent onHop, onHopInRange;
+
+    bool inRange;
 
     private void OnDrawGizmosSelected()
     {
@@ -40,11 +45,13 @@ public class HopTowardsPlayer : MonoBehaviour
             Quaternion lookRotation = Quaternion.LookRotation((new Vector3(player.position.x, 0, player.position.z) - new Vector3(transform.position.x, 0, transform.position.z)).normalized);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotateToPlayerSpeed * Time.deltaTime);
             idleOrigin = transform.position;
+            inRange = true;
         }
         else
         {
             Quaternion lookRotation = Quaternion.LookRotation((new Vector3(randomTargetInIdleRange.x, 0, randomTargetInIdleRange.z) - new Vector3(transform.position.x, 0, transform.position.z)).normalized);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotateToPlayerSpeed * Time.deltaTime);
+            inRange = false;
         }
         DoHop();
     }
@@ -57,6 +64,15 @@ public class HopTowardsPlayer : MonoBehaviour
             Vector3 hopVector = Quaternion.AngleAxis(-hopAngle, transform.right) * transform.forward.normalized;
             rigidBody.velocity += hopVector * hopForce;
             randomTargetInIdleRange = idleOrigin + Quaternion.AngleAxis(Random.Range(0f, 360), Vector3.up) * Vector3.forward * Random.Range(0f, idleRange);
+
+            if (inRange)
+            {
+                onHopInRange?.Invoke();
+            }
+            else
+            {
+                onHop?.Invoke();
+            }
         }
     }
 }
