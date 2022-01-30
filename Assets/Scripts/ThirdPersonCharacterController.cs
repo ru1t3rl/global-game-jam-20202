@@ -36,9 +36,9 @@ public class ThirdPersonCharacterController : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
-            Vector3 moveDiretion = Quaternion.Euler(0f, RotatePlayer(direction), 0f) * Vector3.forward;
-            rigidBody.MovePosition(moveDiretion.normalized * speed * Time.deltaTime + transform.position);
-        }        
+            Vector3 moveDirection = Quaternion.Euler(0f, RotatePlayer(direction), 0f) * Vector3.forward;
+            rigidBody.velocity += moveDirection.normalized * speed * Time.deltaTime;
+        }
     }
 
     private float RotatePlayer(Vector3 direction)

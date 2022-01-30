@@ -13,6 +13,8 @@ namespace GGJ.Spells
         [SerializeField] float damage;
         [SerializeField] float knockback;
         [SerializeField] float speed;
+        [SerializeField] float cooldown;
+        [SerializeField] bool piercing;
 
         #region properties
         public ElementValue[] Elements
@@ -25,6 +27,8 @@ namespace GGJ.Spells
         public float Damage => damage;
         public float Knockback => knockback;
         public float Speed => speed;
+        public float Cooldown => cooldown;
+        public bool Piercing => piercing;
         #endregion
 
         /// <summary>Adds the provideds stats on top of the current stats</summary>

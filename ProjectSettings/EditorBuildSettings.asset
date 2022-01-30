@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 63b9290abd5bb8b47b2f665f342ada65
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
+    path: Assets/Scenes/Testing/SpellTesting.unity
     guid: 5fd556d96b0780745bbb0dbc69de39f7
   m_configObjects: {}
