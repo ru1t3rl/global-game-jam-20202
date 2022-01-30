@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637791459316469024
+  lastModified: 637791476341520526
   FileSizes:
   - Name: Desktop
-    Value: 1272
+    Value: 1322
   Exists: 1
 --- !u!114 &-7731814580437535517
 MonoBehaviour:
@@ -44,8 +44,8 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 2.2
+  MaxDistance: 10
   Length: 600
 --- !u!114 &-7385372960500912514
 MonoBehaviour:
@@ -117,10 +117,10 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/SoundFX.bank
   Name: SoundFX
   StudioPath: bank:/SoundFX
-  lastModified: 637791459317479020
+  lastModified: 637791476343480536
   FileSizes:
   - Name: Desktop
-    Value: 4219616
+    Value: 4258528
   Exists: 1
 --- !u!114 &-3377992328499433220
 MonoBehaviour:
@@ -137,7 +137,7 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 637791459316389048
+  lastModified: 637791476341420573
   FileSizes:
   - Name: Desktop
     Value: 6073376
@@ -185,7 +185,7 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637791459316439015
+  lastModified: 637791476341470524
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -216,12 +216,13 @@ MonoBehaviour:
   - {fileID: 1814138532928908969}
   - {fileID: -7731814580437535517}
   - {fileID: -7385372960500912514}
+  - {fileID: 3720229694882293796}
   EditorParameters: []
   MasterBanks:
   - {fileID: -616260561875017487}
   StringsBanks:
   - {fileID: -9132275416902970012}
-  cacheTime: 637791459317479020
+  cacheTime: 637791476343480536
   cacheVersion: 10
 --- !u!114 &533030423080009895
 MonoBehaviour:
@@ -238,7 +239,7 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637791459316739011
+  lastModified: 637791476342490517
   FileSizes:
   - Name: Desktop
     Value: 2550944
@@ -298,6 +299,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &3720229694882293796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Events/Enemies/Sparks
+  m_EditorClassIdentifier: 
+  Path: event:/Events/Enemies/Sparks
+  Guid:
+    Data1: 1610828957
+    Data2: 1330520207
+    Data3: 1574252477
+    Data4: 2066034192
+  Banks:
+  - {fileID: -5724785196702078279}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 15000
 --- !u!114 &4147567505943788258
 MonoBehaviour:
   m_ObjectHideFlags: 0
