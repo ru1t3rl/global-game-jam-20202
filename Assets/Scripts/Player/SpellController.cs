@@ -8,26 +8,29 @@ namespace GGJ.Spells
     public class SpellController : MonoBehaviour
     {
         [SerializeField] private GameObject startSpell;
+        [SerializeField] private Transform origin;
+
         private float offset = 0.5f;
+        private float currentCooldown;
 
         public BaseSpell CurrentSpell { get; private set;  }
-        private void Awake()
-        {
-            CurrentSpell = Instantiate(startSpell).GetComponent<BaseSpell>();
-        }
-
         
         // Update is called once per frame
         void Update()
         {
-            GetInput();
+            if (currentCooldown <= 0)
+                GetInput();
+            else
+                currentCooldown -= Time.deltaTime;
         }
 
         private void GetInput()
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0))
             {
-                CurrentSpell.Attack(transform.position + transform.forward * offset, transform.position + transform.forward * CurrentSpell.Stats.Range);
+                CurrentSpell = Instantiate(startSpell).GetComponent<BaseSpell>();
+                CurrentSpell.TryPerform(origin.position + origin.forward * offset, origin.position + origin.forward * CurrentSpell.Stats.Range);
+                currentCooldown = CurrentSpell.Stats.Cooldown;
             }
         }
     }

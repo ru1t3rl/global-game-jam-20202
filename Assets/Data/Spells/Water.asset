@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   elements: []
-  range: 11
+  range: 3
   damage: 100
+  knockback: 10
   speed: 10
+  cooldown: 0.5
+  piercing: 0

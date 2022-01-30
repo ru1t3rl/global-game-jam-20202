@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 namespace GGJ.Floors
 {
+    [RequireComponent(typeof(BoxCollider))]
     public class Floor : MonoBehaviour
     {
         [SerializeField] bool usePooling = false;
@@ -20,12 +21,13 @@ namespace GGJ.Floors
         {
             if (usePooling)
             {
+                BoxCollider floorBoundingBox = GetComponent<BoxCollider>();
                 for (int i = 0, j; i < possibleEnemies.Count; i++)
                 {
                     pool.Add(possibleEnemies[i], new Stack<Entity>());
                     for (j = 0; j < possibleEnemies[i].maxToSpawn; j++)
                     {
-                        pool[possibleEnemies[i]].Push(Instantiate(possibleEnemies[i].prefab).GetComponent<Entity>());
+                        pool[possibleEnemies[i]].Push(Instantiate(possibleEnemies[i].prefab, GetRandomPointInsideCollider(floorBoundingBox), Quaternion.identity).GetComponent<Entity>());
                     }
                 }
             }
@@ -37,6 +39,18 @@ namespace GGJ.Floors
             SpawnEnemies();
         }
 
+
+        public Vector3 GetRandomPointInsideCollider(BoxCollider boxCollider)
+        {
+            Vector3 extents = boxCollider.size / 2f * 20f;
+            Vector3 point = new Vector3(
+                Random.Range(-extents.x, extents.x),
+                Random.Range(0, 0),
+                Random.Range(-extents.z, extents.z)
+            );
+            
+            return transform.position + point;
+        }
 
         public void SpawnEnemies()
         {
