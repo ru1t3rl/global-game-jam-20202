@@ -34,14 +34,6 @@ public class ThirdPersonCharacterController : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(transform.position + capsuleCollider.center, capsuleCollider.radius);
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(new Ray(transform.position + capsuleCollider.center, Vector3.down * (transform.position.y + capsuleCollider.center.y + 0.1f)));
-    }
-
     private void Update()
     {
         MovePlayer();

@@ -130,8 +130,6 @@ namespace GGJ.Floors
                     this.toSpawn--;
                 }
 
-                Debug.Log(activeEntities);
-
                 yield return new WaitForSeconds(enemy.useRandomSpawnRate ? Random.Range(enemy.spawnRate, enemy.maxSpawnRate) : enemy.spawnRate);
             }
         }
