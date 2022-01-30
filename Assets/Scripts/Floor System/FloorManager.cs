@@ -27,7 +27,7 @@ namespace GGJ.Floors
             }
         }
 
-        void ActivateNextFloor()
+        public void ActivateNextFloor()
         {
             onFinishFloor?.Invoke();
 
