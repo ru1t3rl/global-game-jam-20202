@@ -42,10 +42,6 @@ public class ThirdPersonCharacterController : MonoBehaviour
         RotatePlayer();
     }
 
-    private void OnDrawGizmos()
-    {
-    }
-
     private void RotatePlayer()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);

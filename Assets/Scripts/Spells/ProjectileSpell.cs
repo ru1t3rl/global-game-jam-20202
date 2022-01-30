@@ -6,7 +6,7 @@ namespace GGJ.Spells
 {
     public class ProjectileSpell : BaseSpell
     {
-        protected override void PerformSpell(Vector3 position, Vector3 target)
+        protected override void BeginSpell(Vector3 position, Vector3 target)
         {
             Rigidbody rb = GetComponent<Rigidbody>();
             transform.position = position;

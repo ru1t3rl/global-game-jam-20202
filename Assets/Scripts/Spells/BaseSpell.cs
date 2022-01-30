@@ -38,11 +38,11 @@ namespace GGJ.Spells
             if (!HasAllResources)
                 return;
 
-            PerformSpell(position, target);
+            BeginSpell(position, target);
             StartVisualEffect();
         }
 
-        protected abstract void PerformSpell(Vector3 position, Vector3 target);
+        protected abstract void BeginSpell(Vector3 position, Vector3 target);
 
         void StartVisualEffect()
         {
