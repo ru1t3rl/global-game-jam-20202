@@ -15,11 +15,66 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637790933053565871
+  lastModified: 637791459316469024
   FileSizes:
   - Name: Desktop
-    Value: 1170
+    Value: 1272
   Exists: 1
+--- !u!114 &-7731814580437535517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Events/Spells/Spell Impact
+  m_EditorClassIdentifier: 
+  Path: event:/Events/Spells/Spell Impact
+  Guid:
+    Data1: -1834532365
+    Data2: 1152484778
+    Data3: -977653351
+    Data4: -490561828
+  Banks:
+  - {fileID: -5724785196702078279}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 600
+--- !u!114 &-7385372960500912514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Events/Spells/Cast Spell
+  m_EditorClassIdentifier: 
+  Path: event:/Events/Spells/Cast Spell
+  Guid:
+    Data1: 1156814180
+    Data2: 1256149761
+    Data3: -434463059
+    Data4: -1122411913
+  Banks:
+  - {fileID: -3377992328499433220}
+  - {fileID: -5724785196702078279}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 600
 --- !u!114 &-5993069528881010953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,10 +117,10 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/SoundFX.bank
   Name: SoundFX
   StudioPath: bank:/SoundFX
-  lastModified: 637791021329474845
+  lastModified: 637791459317479020
   FileSizes:
   - Name: Desktop
-    Value: 4193600
+    Value: 4219616
   Exists: 1
 --- !u!114 &-3377992328499433220
 MonoBehaviour:
@@ -82,10 +137,10 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 637791021329014834
+  lastModified: 637791459316389048
   FileSizes:
   - Name: Desktop
-    Value: 6053760
+    Value: 6073376
   Exists: 1
 --- !u!114 &-2288652517422743645
 MonoBehaviour:
@@ -130,38 +185,11 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637790933053525871
+  lastModified: 637791459316439015
   FileSizes:
   - Name: Desktop
     Value: 1036
   Exists: 1
---- !u!114 &-591613669222122499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Events/Speel Hit Wall
-  m_EditorClassIdentifier: 
-  Path: event:/Events/Speel Hit Wall
-  Guid:
-    Data1: 535533050
-    Data2: 1076680010
-    Data3: -507482232
-    Data4: -120149166
-  Banks:
-  - {fileID: -5724785196702078279}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,14 +212,16 @@ MonoBehaviour:
   - {fileID: -2288652517422743645}
   - {fileID: -5993069528881010953}
   - {fileID: 3025821813193720732}
-  - {fileID: -591613669222122499}
   - {fileID: 4147567505943788258}
+  - {fileID: 1814138532928908969}
+  - {fileID: -7731814580437535517}
+  - {fileID: -7385372960500912514}
   EditorParameters: []
   MasterBanks:
   - {fileID: -616260561875017487}
   StringsBanks:
   - {fileID: -9132275416902970012}
-  cacheTime: 637791021329474845
+  cacheTime: 637791459317479020
   cacheVersion: 10
 --- !u!114 &533030423080009895
 MonoBehaviour:
@@ -208,11 +238,39 @@ MonoBehaviour:
   Path: Audio Project/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637791021329204838
+  lastModified: 637791459316739011
   FileSizes:
   - Name: Desktop
     Value: 2550944
   Exists: 1
+--- !u!114 &1814138532928908969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Events/Enemies/Attack
+  m_EditorClassIdentifier: 
+  Path: event:/Events/Enemies/Attack
+  Guid:
+    Data1: -1298081077
+    Data2: 1073953024
+    Data3: 264515005
+    Data4: 19235461
+  Banks:
+  - {fileID: -3377992328499433220}
+  - {fileID: -5724785196702078279}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 460
 --- !u!114 &3025821813193720732
 MonoBehaviour:
   m_ObjectHideFlags: 0
