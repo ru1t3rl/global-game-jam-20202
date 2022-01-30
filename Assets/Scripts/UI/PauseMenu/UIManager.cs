@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     }
 
    
-    private void FixedUpdate()
+    private void Update()
     {
         PauseGame(pausePanel);
         
