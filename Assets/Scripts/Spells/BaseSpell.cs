@@ -8,82 +8,49 @@ using DG.Tweening;
 
 namespace GGJ.Spells
 {
-    public class BaseSpell : MonoBehaviour
+    public abstract class BaseSpell : MonoBehaviour
     {
-        [SerializeField] ParticleSystem visualEffect;
-        [SerializeField] VisualEffect vfx;
-        [SerializeField] SpellStats stats;
+        [SerializeField] protected ParticleSystem visualEffect;
+        [SerializeField] protected VisualEffect vfx;
+        [SerializeField] protected SpellStats stats;
+
+        private float lifetime;
+        private float currentLifetime;
 
         public SpellStats Stats => stats;
 
         public UnityEvent onImpact;
 
-        Tweener tweener;
+        private void Awake()
+        {
+            lifetime = stats.Range / stats.Speed;
+        }
 
-        public bool Active => tweener.active;
+        protected virtual void Update()
+        {
+            currentLifetime += Time.deltaTime;
+            if (currentLifetime > lifetime)
+                Destroy(gameObject);
+        }
 
-        public void Attack()
+        public void TryPerform(Vector3 position, Vector3 target)
         {
             if (!HasAllResources)
                 return;
 
-            StartRoutine();
+            BeginSpell(position, target);
             StartVisualEffect();
         }
 
-        public void Attack(Vector3 position)
-        {
-            if (!HasAllResources)
-                return;
+        protected abstract void BeginSpell(Vector3 position, Vector3 target);
 
-            transform.position = position;
-            StartRoutine();
-            StartVisualEffect();
-        }
-
-        public void Attack(Vector3 position, Vector3 target)
-        {
-            if (!HasAllResources)
-                return;
-
-            transform.position = position;
-            StartRoutine(target);
-            StartVisualEffect();
-        }
-
-        void StartVisualEffect()
+        protected void StartVisualEffect()
         {
             if (visualEffect)
                 visualEffect.Play();
 
             if (vfx)
                 vfx.Play();
-        }
-
-        void StartRoutine()
-        {
-            if (tweener != null)
-                tweener.Complete();
-
-            tweener = transform.DOMove(transform.position + transform.forward * stats.Range, stats.Range / stats.Speed);
-            tweener.onComplete += () => tweener = null;
-        }
-
-        void StartRoutine(Vector3 target)
-        {
-            if (tweener != null)
-                tweener.Complete();
-
-            tweener = transform.DOMove(target, stats.Range / stats.Speed);
-            tweener.onComplete += () => tweener = null;
-        }
-
-        public void StopSpell()
-        {
-            if (tweener != null)
-                tweener.Complete();
-
-            tweener = null;
         }
 
         public bool HasAllResources
@@ -99,7 +66,7 @@ namespace GGJ.Spells
             }
         }
 
-        void UseResources()
+        private void UseResources()
         {
             for (int i = 0; i < stats.Elements.Length; i++)
             {
@@ -107,16 +74,5 @@ namespace GGJ.Spells
             }
         }
 
-        void OnTriggerEnter(Collider other)
-        {
-            onImpact?.Invoke();
-
-            Entity entity = other.GetComponent<Entity>();
-
-            if (entity != null)
-            {
-                entity.ApplyDamage(new DamageData(stats.Damage, stats.Knockback, gameObject, transform.position));
-            }
-        }
     }
 }

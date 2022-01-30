@@ -42,16 +42,22 @@ public class ThirdPersonCharacterController : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
-            Vector3 moveDiretion = Quaternion.Euler(0f, RotatePlayer(direction), 0f) * Vector3.forward;
-            rigidBody.MovePosition(moveDiretion.normalized * speed * Time.deltaTime + transform.position);
-        }        
+            Vector3 moveDirection = Quaternion.Euler(0f, Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.transform.eulerAngles.y, 0f) * Vector3.forward;
+            rigidBody.velocity += moveDirection.normalized * speed * Time.deltaTime;
+        }
+        RotatePlayer();
     }
 
-    private float RotatePlayer(Vector3 direction)
+    private void RotatePlayer()
     {
-        targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.transform.eulerAngles.y;
-        angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-        transform.rotation = Quaternion.Euler(0, angle, 0);
-        return targetAngle;
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, LayerMask.GetMask("Walls")))
+        {
+            Vector3 direction = hit.point - transform.position;
+            targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0, angle, 0);
+        }
     }
 }

@@ -9,7 +9,14 @@ namespace GGJ.Floors
     {
         [SerializeField] Floor[] floors;
         [SerializeField] UnityEvent onFinishFloor, onFinishAllFloors;
-        int currentFloor = 0;
+        int currentFloor = -1;
+
+        void Awake()
+        {
+            if (floors.Length > 0)
+                ActivateNextFloor();
+        }
+
 
         void OnEnable()
         {
@@ -29,7 +36,8 @@ namespace GGJ.Floors
 
         public void ActivateNextFloor()
         {
-            onFinishFloor?.Invoke();
+            if (currentFloor >= 0)
+                onFinishFloor?.Invoke();
 
             if (currentFloor + 1 >= floors.Length)
             {
