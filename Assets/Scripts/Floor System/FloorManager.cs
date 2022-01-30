@@ -9,7 +9,20 @@ namespace GGJ.Floors
     {
         [SerializeField] Floor[] floors;
         [SerializeField] UnityEvent onFinishFloor, onFinishAllFloors;
-        int currentFloor = 0;
+        int currentFloor = -1;
+
+        void Awake()
+        {
+            if (floors.Length > 0)
+                ActivateNextFloor();
+
+            for (int iFloor = 0; iFloor < floors.Length; iFloor++)
+            {
+                floors[iFloor].onEnterRoom.AddListener(OnEnterRoom);
+            }
+
+        }
+
 
         void OnEnable()
         {
@@ -27,9 +40,26 @@ namespace GGJ.Floors
             }
         }
 
-        void ActivateNextFloor()
+        void OnEnterRoom()
         {
-            onFinishFloor?.Invoke();
+            if (currentFloor > 0)
+            {
+                floors[currentFloor - 1].CloseDoors();
+                floors[currentFloor - 1].gameObject.SetActive(false);
+            }
+        }
+
+
+        public void ActivateNextFloor()
+        {
+            if (currentFloor >= 0)
+            {
+                try
+                {
+                    onFinishFloor?.Invoke();
+                }
+                catch (System.StackOverflowException) { }
+            }
 
             if (currentFloor + 1 >= floors.Length)
             {

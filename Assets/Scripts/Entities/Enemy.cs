@@ -12,7 +12,6 @@ public class Enemy : Entity
     protected override void Awake()
     {
         OnDeath.AddListener((Entity entity, DamageData data) => DropItemsOnDeath());
-        OnDeath.AddListener((Entity entity, DamageData data) => DestroyOnDeath());
         base.Awake();
     }
 
@@ -37,6 +36,12 @@ public class Enemy : Entity
                 }
             }
         }
+    }
+
+    public override void Die(DamageData data)
+    {
+        base.Die(data);
+        DestroyOnDeath();
     }
 
     private void DestroyOnDeath()
