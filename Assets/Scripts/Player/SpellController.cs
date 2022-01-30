@@ -10,7 +10,6 @@ namespace GGJ.Spells
         [SerializeField] private GameObject startSpell;
         [SerializeField] private Transform origin;
 
-        private float offset = 0.5f;
         private float currentCooldown;
 
         public BaseSpell CurrentSpell { get; private set;  }
@@ -29,7 +28,7 @@ namespace GGJ.Spells
             if (Input.GetMouseButtonDown(0))
             {
                 CurrentSpell = Instantiate(startSpell).GetComponent<BaseSpell>();
-                CurrentSpell.TryPerform(origin.position + origin.forward * offset, origin.position + origin.forward * CurrentSpell.Stats.Range);
+                CurrentSpell.TryPerform(origin);
                 currentCooldown = CurrentSpell.Stats.Cooldown;
             }
         }
