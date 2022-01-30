@@ -26,7 +26,7 @@ namespace GGJ.Spells
 
         private void GetInput()
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0))
             {
                 CurrentSpell = Instantiate(startSpell).GetComponent<BaseSpell>();
                 CurrentSpell.TryPerform(origin.position + origin.forward * offset, origin.position + origin.forward * CurrentSpell.Stats.Range);
