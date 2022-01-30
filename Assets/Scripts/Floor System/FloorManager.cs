@@ -37,7 +37,13 @@ namespace GGJ.Floors
         public void ActivateNextFloor()
         {
             if (currentFloor >= 0)
-                onFinishFloor?.Invoke();
+            {
+                try
+                {
+                    onFinishFloor?.Invoke();
+                }
+                catch (System.StackOverflowException) { }
+            }
 
             if (currentFloor + 1 >= floors.Length)
             {
