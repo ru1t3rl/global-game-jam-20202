@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f14ecf51cf1bb014f81cf1fbbe0eb6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpell: {fileID: 6952548882881756739, guid: 8102acff3dd1eee45bb067f676dead07, type: 3}
+  startSpell: {fileID: 6952548882881756739, guid: 870e4485304e11e41adbe0b8d8a8f3d7, type: 3}
 --- !u!1 &6885565557369649121
 GameObject:
   m_ObjectHideFlags: 3
