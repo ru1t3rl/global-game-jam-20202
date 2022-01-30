@@ -61,7 +61,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 1.5
-  OverrideMaxDistance: 20
+  OverrideMaxDistance: 40
 --- !u!1 &5418376556147681019
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992eab136520d9e47a3aeaf0fda6cb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 50
+  _maxHealth: 20
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -215,12 +215,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1789afdb6a2b1246ba6a82b750a2356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acquireRange: 5
-  idleRange: 2
-  hopAngle: 30
-  hopForce: 3
-  minCooldown: 1.5
-  maxCooldown: 2
+  acquireRange: 30
+  idleRange: 10
+  hopAngle: 60
+  hopForce: 15
+  minCooldown: 3
+  maxCooldown: 5
   rotateToPlayerSpeed: 20
   onHop:
     m_PersistentCalls:
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  knockback: 5
+  knockback: 30
   onContact:
     m_PersistentCalls:
       m_Calls: []
