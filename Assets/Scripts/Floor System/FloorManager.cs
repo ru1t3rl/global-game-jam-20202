@@ -15,6 +15,12 @@ namespace GGJ.Floors
         {
             if (floors.Length > 0)
                 ActivateNextFloor();
+
+            for (int iFloor = 0; iFloor < floors.Length; iFloor++)
+            {
+                floors[iFloor].onEnterRoom.AddListener(OnEnterRoom);
+            }
+
         }
 
 
@@ -33,6 +39,16 @@ namespace GGJ.Floors
                 floors[i].onFinishFloor.RemoveListener(ActivateNextFloor);
             }
         }
+
+        void OnEnterRoom()
+        {
+            if (currentFloor > 0)
+            {
+                floors[currentFloor - 1].CloseDoors();
+                floors[currentFloor - 1].gameObject.SetActive(false);
+            }
+        }
+
 
         public void ActivateNextFloor()
         {

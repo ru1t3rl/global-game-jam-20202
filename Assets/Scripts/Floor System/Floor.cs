@@ -13,6 +13,7 @@ namespace GGJ.Floors
         [SerializeField] Door[] doors;
 
         public UnityEvent onFinishFloor;
+        public UnityEvent onEnterRoom;
 
         Dictionary<EnemySettings, Stack<Entity>> pool = new Dictionary<EnemySettings, Stack<Entity>>();
 
@@ -135,10 +136,19 @@ namespace GGJ.Floors
             }
         }
 
+        public void CloseDoors()
+        {
+            for (int iDoor = 0; iDoor < doors.Length; iDoor++)
+            {
+                doors[iDoor].Close();
+            }
+        }
+
         void OnTriggerEnter(Collider collider)
         {
             if (collider.GetComponent<Player>())
             {
+                onEnterRoom?.Invoke();
                 for (int i = 0; i < doors.Length; i++) { doors[i].Close(); }
             }
         }
