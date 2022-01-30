@@ -14,9 +14,8 @@ TagManager:
   - Player
   - Pickups
   - Walls
-  - Spells
   - PostFX
-  - 
+  - EnemyBoundary
   - 
   - 
   - 

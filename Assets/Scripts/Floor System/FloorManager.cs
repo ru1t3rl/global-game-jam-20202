@@ -2,25 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEditor;
 
 namespace GGJ.Floors
 {
+#if UNITY_EDITOR
+    [CustomEditor(typeof(FloorManager))]
+    public class FloorManagerEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            if (GUILayout.Button("Unlock Next"))
+            {
+                (target as FloorManager).Floors[(target as FloorManager).CurrentFloor].onFinishFloor?.Invoke();
+            }
+        }
+    }
+
+#endif
+
     public class FloorManager : MonoBehaviour
     {
         [SerializeField] Floor[] floors;
-        [SerializeField] UnityEvent onFinishFloor, onFinishAllFloors;
+        public Floor[] Floors => floors;
+        public UnityEvent onFinishFloor, onFinishAllFloors;
         int currentFloor = -1;
+        public int CurrentFloor => currentFloor;
 
         void Awake()
         {
-            if (floors.Length > 0)
-                ActivateNextFloor();
-
             for (int iFloor = 0; iFloor < floors.Length; iFloor++)
             {
                 floors[iFloor].onEnterRoom.AddListener(OnEnterRoom);
+                floors[iFloor].gameObject.SetActive(false);
             }
 
+
+            if (floors.Length > 0)
+                ActivateNextFloor();
         }
 
 

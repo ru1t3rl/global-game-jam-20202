@@ -65,12 +65,12 @@ namespace GGJ.Floors
         {
             Vector3 extents = boxCollider.size / 2f;
             Vector3 point = new Vector3(
-                Random.Range(-extents.x + boxCollider.center.x, extents.x - boxCollider.center.x),
-                2.5f,
-                Random.Range(-extents.z + boxCollider.center.z, extents.z - boxCollider.center.z)
+                Random.Range(-extents.x, extents.x),
+                1.5f,
+                Random.Range(-extents.z, extents.z)
             );
-
-            return transform.position + point;
+            point += boxCollider.center;
+            return boxCollider.transform.TransformPoint(point);
         }
 
         public void SpawnEnemies()

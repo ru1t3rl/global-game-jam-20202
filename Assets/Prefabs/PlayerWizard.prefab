@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2054247989}
   - component: {fileID: 2054247990}
   - component: {fileID: 3531737594185654574}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerWizard
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -107,9 +107,9 @@ MonoBehaviour:
   turnSmoothTime: 0.1
   targetAngle: 0
   angle: 0
-  jumpForce: 40
-  jumpGravityMultiplier: 5
-  fallGravityMultiplier: 15
+  jumpForce: 30
+  jumpGravityMultiplier: 2.5
+  fallGravityMultiplier: 8
 --- !u!54 &5959816677999525363
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -124,7 +124,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &5959816677999525362
 CapsuleCollider:
@@ -221,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1784559942242906028}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpellCastOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,6 +282,10 @@ PrefabInstance:
       propertyPath: m_Lens.m_SensorSize.x
       value: 1.1324786
       objectReference: {fileID: 0}
+    - target: {fileID: 7627902273857880143, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7627902273994824451, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -330,8 +334,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: FixedCam
       objectReference: {fileID: 0}
+    - target: {fileID: 7627902273994824452, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7627902274142599718, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
       propertyPath: m_FollowOffset.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627902274142599721, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
+      propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7627902274167382647, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
@@ -370,12 +382,24 @@ PrefabInstance:
       propertyPath: m_Orbits.Array.data[2].m_Radius
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 7627902274167382649, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7627902274334227636, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
       propertyPath: m_FollowOffset.y
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7627902274334227639, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7627902274342916455, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
       propertyPath: m_FollowOffset.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627902274342916458, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
+      propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7627902274403008182, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
@@ -405,6 +429,10 @@ PrefabInstance:
     - target: {fileID: 7627902274403008183, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
       value: 1.1324786
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627902274403008184, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7627902274414059463, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
       propertyPath: m_LocalPosition.x
@@ -438,6 +466,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 2.862
       objectReference: {fileID: 0}
+    - target: {fileID: 7627902274414059466, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7627902275201747997, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0000038146977
@@ -461,6 +493,10 @@ PrefabInstance:
     - target: {fileID: 7627902275201747998, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
       value: 1.1324786
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627902275201747999, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d43a0549e6d2c724a8a14d6833c3cdde, type: 3}
