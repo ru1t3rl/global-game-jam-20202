@@ -15,7 +15,7 @@ namespace GGJ.Spells
         [SerializeField] protected SpellStats stats;
 
         private float lifetime;
-        private float currentLifetime;
+        protected float currentLifetime;
 
         public SpellStats Stats => stats;
 
@@ -33,16 +33,16 @@ namespace GGJ.Spells
                 Destroy(gameObject);
         }
 
-        public void TryPerform(Vector3 position, Vector3 target)
+        public void TryPerform(Transform origin)
         {
             if (!HasAllResources)
                 return;
 
-            BeginSpell(position, target);
+            BeginSpell(origin);
             StartVisualEffect();
         }
 
-        protected abstract void BeginSpell(Vector3 position, Vector3 target);
+        protected abstract void BeginSpell(Transform origin);
 
         protected void StartVisualEffect()
         {
