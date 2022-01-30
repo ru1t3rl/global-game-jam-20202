@@ -6,11 +6,15 @@ namespace GGJ.Spells
 {
     public class ProjectileSpell : BaseSpell
     {
-        protected override void BeginSpell(Vector3 position, Vector3 target)
+        float offset = 0.5f;
+
+        protected override void BeginSpell(Transform origin)
         {
             Rigidbody rb = GetComponent<Rigidbody>();
-            transform.position = position;
-            rb.velocity = (target - position) * stats.Speed;
+            transform.position = origin.position + origin.forward * offset;
+            Vector3 target = transform.position + origin.forward * stats.Range;
+
+            rb.velocity = (target - transform.position) * stats.Speed;
 
             StartVisualEffect();
         }
