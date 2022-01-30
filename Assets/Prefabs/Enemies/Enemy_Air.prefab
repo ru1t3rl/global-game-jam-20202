@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5183811485407998832}
   - component: {fileID: 5183811485407998833}
   - component: {fileID: 5183811485407998830}
+  - component: {fileID: 2318446169573059590}
   m_Layer: 0
   m_Name: Enemy_Air
   m_TagString: Untagged
@@ -98,7 +99,7 @@ Rigidbody:
   m_GameObject: {fileID: 5418376556147681019}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -170,5 +171,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6baadd8e2264b5641a26aa208741ab35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  knockback: 3
+  damage: 20
+  knockback: 5
+--- !u!114 &2318446169573059590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418376556147681019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c3760c7cee9fe468167ba8045f3e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnKnockback:
+    m_PersistentCalls:
+      m_Calls: []
