@@ -11,6 +11,8 @@ namespace GGJ.Spells
             Rigidbody rb = GetComponent<Rigidbody>();
             transform.position = position;
             rb.velocity = (target - position) * stats.Speed;
+
+            StartVisualEffect();
         }
 
         private void OnTriggerEnter(Collider other)

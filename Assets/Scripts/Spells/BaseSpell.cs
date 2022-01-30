@@ -23,7 +23,7 @@ namespace GGJ.Spells
 
         private void Awake()
         {
-            lifetime = stats.Range / stats.Speed;    
+            lifetime = stats.Range / stats.Speed;
         }
 
         protected virtual void Update()
@@ -44,7 +44,7 @@ namespace GGJ.Spells
 
         protected abstract void BeginSpell(Vector3 position, Vector3 target);
 
-        void StartVisualEffect()
+        protected void StartVisualEffect()
         {
             if (visualEffect)
                 visualEffect.Play();

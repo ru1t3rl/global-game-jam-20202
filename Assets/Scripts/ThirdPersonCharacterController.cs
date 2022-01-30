@@ -27,6 +27,12 @@ public class ThirdPersonCharacterController : MonoBehaviour
         MovePlayer();
     }
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+
     private void MovePlayer()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
